@@ -24,19 +24,19 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="ナビゲーションの切替">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="ナビゲーションの切替">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <!-- Navbar Left -->
-                            <ul class="navbar-left">
+                            <ul class="navbar-nav navbar-left">
                                 @guest
                                 @else
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/tasks') }}">Task List</a>
@@ -49,8 +49,8 @@
                                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ログイン</a></li>
                                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">ユーザ登録</a></li>
                                 @else
-                                <li class="dropdown">
-                                    <a href="#" class="nva-link dropdown-toggle btn btn-secondary" data-toggle="dropdown" role="button"
+                                <li class="dropdown nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                     id="navbarDropdownMenuLink" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
