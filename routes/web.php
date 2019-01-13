@@ -23,3 +23,6 @@ Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
 Route::delete('/task/{task}', 'TaskController@destroy');
 
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact/confirm', 'ContactController@confirm');
+Route::post('/contact/complete', 'ContactController@complete');

@@ -37,6 +37,7 @@
                         <ul class="navbar-nav">
                             <!-- Navbar Left -->
                             <ul class="navbar-nav navbar-left">
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                                 @guest
                                 @else
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/tasks') }}">Task List</a>
