@@ -47,7 +47,7 @@ class ContactController extends Controller
             'to' => $request->email,
             'to_name' => $request->name,
             'from' => 'engineeryodaka@gmail.com',
-            'from_name' => "yodaka's Services",
+            'from_name' => "Yodaka Services",
             'subject' => 'お問い合わせありがとうございました。',
             'body' => $request->message
         ]));
@@ -55,7 +55,7 @@ class ContactController extends Controller
         // 受信メール
         \Mail::send(new ContactSent([
             'to' => 'engineeryodaka@gmail.com',
-            'to_name' => "yodaka's Services",
+            'to_name' => "Yodaka Services",
             'from' => $request->email,
             'from_name' => $request->name,
             'subject' => 'サイトからのお問い合わせ',
