@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Mail\ContactSent;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,19 +43,19 @@ class ContactController extends Controller
         }
         
         // 送信メール
-        \Mail::send(new \App\Mail\Contact([
+        \Mail::send(new ContactSent([
             'to' => $request->email,
             'to_name' => $request->name,
             'from' => 'engineeryodaka@gmail.com',
-            'from_name' => "yodaka",
+            'from_name' => "yodaka's Services",
             'subject' => 'お問い合わせありがとうございました。',
             'body' => $request->message
         ]));
  
         // 受信メール
-        \Mail::send(new \App\Mail\Contact([
+        \Mail::send(new ContactSent([
             'to' => 'engineeryodaka@gmail.com',
-            'to_name' => 'yodaka',
+            'to_name' => "yodaka's Services",
             'from' => $request->email,
             'from_name' => $request->name,
             'subject' => 'サイトからのお問い合わせ',

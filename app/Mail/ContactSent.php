@@ -32,11 +32,14 @@ class ContactSent extends Mailable
      */
     public function build()
     {
-         return $this->text('emails.'.$this->viewStr)
-            ->to($this->content['to'], $this->content['to_name'])
-            ->from($this->content['from'], $this->content['from_name'])
-            ->subject($this->content['subject'])
-            ->with([
+         return $this->text('emails.'.$this->viewStr)->to(
+            $this->content['to'],
+            $this->content['to_name']
+            )->from(
+                $this->content['from'],
+                $this->content['from_name']
+            )->subject($this->content['subject'])->with
+            ([
                 'content' => $this->content,
             ]);
     }
